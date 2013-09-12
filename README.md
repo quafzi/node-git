@@ -24,7 +24,30 @@ On windows:
 	
 ## Examples
 
-For simple examples of usage look at the tests included in the repository.
+To get the history of a repository:
+
+    // init repository
+    new git.Repo(
+      '/path/to/your/repo',
+      {is_bare: true}, // you may use this to access a bare repository
+      function (repo) {
+        repo.log(null, null, {}, function(history) {
+          // history is an array of commits, containing
+          // * id
+          // * sha
+          // * parents
+          // * tree
+          // * author
+          // * authored_date
+          // * committer
+          // * committed_date
+          // * short_message
+          // * filechanges
+        });
+      }
+    );
+
+For more examples of usage look at the tests included in the repository.
 
 ## Notes
 
